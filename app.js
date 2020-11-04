@@ -1,9 +1,28 @@
 const express = require("express");
 const app = express();
+const cors = require("cors");
+const morgan = require("morgan");
+const bodyParser = require("body-parser");
 
-app.get("/", async (request, response) => {
-    /* const data = await procesarData(); */
-    response.send("Hello World");
-})
+const corsOptions = {
+    methods: 'GET,PUT,POST,DELETE,OPTIONS',
+    origin: '*',
+    allowedHeaders: ['Content-Type', 'Authorization', 'access_token', 'ACCESS_TOKEN'],
+    exposedHeaders: ['Content-Type', 'Authorization', 'access_token', 'ACCESS_TOKEN']
+};
+
+// app.get("/", async (request, response) => {
+//     /* const data = await procesarData(); */
+//     response.send("Hello World");
+// });
+
+const routes = require("./routes/routes");
+
+app.use('/api/v1', routes);
+
+app.use(morgan('dev'));
+app.use(bodyParser.json());
+app.use(cors(corsOptions));
+app.use(express.static(__dirname + '/public'));
 
 module.exports = app;
