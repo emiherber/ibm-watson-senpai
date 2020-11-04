@@ -1,17 +1,12 @@
+---
 applications:
-    - name: senpai-ibm-watson-20201029-dev
-      memory: 64M
-      instances: 1
-      env:
-        - API_KEY: 'placeholder'
-    - name: senpai-ibm-watson-20201029-test
-        memory: 64M
-        instances: 1
-        env:
-          - API_KEY: 'placeholder'
-    - name: senpai-ibm-watson-20201029-prod
-        memory: 64M
-        instances: 1
-        env:
-            - API_KEY: 'placeholder'
+  - name: senpai-ibm-watson-20201029-dev
+    memory: 64M
+    instances: 1
+  - name: senpai-ibm-watson-20201029-test
+    memory: 64M
+    instances: 1
+  - name: senpai-ibm-watson-20201029-prod
+    memory: 64M
+    instances: 1
 
