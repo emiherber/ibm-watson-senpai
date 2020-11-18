@@ -87,7 +87,11 @@
             responseWatsonText.push(generic.text);
           }
           else if (generic.response_type === 'option') {
-            responseWatsonText.push(JSON.stringify(generic));
+            let listado = '';
+            for (i in generic.options) { 
+              listado += generic.options[i].label + ' - '; 
+            }
+            responseWatsonText.push(listado.slice(0,-2));
           }
           else if (generic.response_type === 'image') {
             responseWatsonText.push(`<img src="${generic.source}" width="250" height="150">`);
