@@ -10,6 +10,7 @@ const getPing = async (req, res) => {
     });
 }
 
+
 module.exports = {
     getPing
 }
